@@ -1,0 +1,317 @@
+@import "variables"
+@import "prefixes"
+/* RESET */
+@import "normalize"
+
+body
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+ul
+  margin: 0
+  padding: 0
+
+img:focus
+  outline: none !important
+
+.wrapper
+  max-width: 1200px
+  padding: 0 30px
+  margin: 0 auto
+  overflow: hidden
+
+.wrapperFullHD
+  max-width: 1920px
+
+.innerTitle
+  @include font($textBlack, $bold, bold, 22px, 1.2)
+  margin-bottom: 50px
+
+/* HEADER */
+.s_header
+  background: $blue
+  position: relative
+  z-index: 1
+
+  .wrapperFullHD
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: url("../images/main/photo_block_1.jpg")
+    margin: 0 auto
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: start
+  padding: 30px 0
+  position: relative
+  z-index: 3
+
+  &__menu
+    ul
+      display: flex
+      list-style: none
+
+    &__item
+      a
+        text-decoration: none
+        padding: 5px
+        margin: 0 0 0 25px
+        @include font($white, $bold, bold, 17px)
+        @include transition()
+
+        &:hover
+          color: $lightBlue
+          @include transition()
+
+      &.active a
+        color: $lightBlue
+
+.logo
+  @include font($white, $cormorant, 300, 22px)
+
+  &_big
+    font-size: 48px
+
+
+.header_main
+  p
+    max-width: 700px
+    @include font($white, $regular, normal, 29px)
+
+/* FOOTER */
+.s_footer
+  margin-top: auto
+  background: $blue
+
+.footer
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  padding: 50px 0
+
+  &__contacts
+    p
+      @include font($white, $regular, normal, 21px, 35px)
+      margin: 0
+
+    .phone
+      @include font($white, $bold, bold, 32px)
+      text-decoration: none
+
+/* MAIN PAGE */
+.main
+  img
+    width: 100%
+    max-height: 520px
+    @include object-fit()
+
+  &__invisible
+    display: flex
+    position: relative
+
+  &__content
+    opacity: 0
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgba(6, 131, 197, .7)
+    @include transition()
+
+    &:hover
+      opacity: 1
+      @include transition()
+
+    .innerTitle
+      margin-top: 60px
+      color: $white
+
+    p
+      @include font($white, $regular, normal, 20px)
+      max-width: 700px
+
+    a
+      position: absolute
+      bottom: 40px
+      right: 300px
+      @include font($white, $regular, normal, 30px)
+      text-decoration: none
+
+      &:hover
+        color: $lightBlue
+
+/* NEWS PAGE */
+.news__slider
+  position: relative
+
+  .slick-prev, .slick-next
+    position: absolute
+    top: 50%
+    z-index: 1
+    @include transform(translateY(-50%))
+    border: none
+    background: none
+
+    &:focus
+      outline: none
+
+  .slick-prev
+    left: 100px
+    @include transform(translateY(-50%) rotate(180deg))
+
+  .slick-next
+    right: 100px
+
+.news
+  padding-top: 60px
+  margin-bottom: 60px
+
+  &__item
+    padding: 0 0 30px
+    border-bottom: 2px solid $blue
+    margin-bottom: 30px
+
+    &:last-child
+      border-bottom: none
+      margin-bottom: 0
+
+    > p
+      @include font($textBlack, $regular, normal, 20px)
+      margin-bottom: 50px
+
+    &__title
+      @include font($textBlack, $bold, bold, 20px, 1.2)
+      text-transform: uppercase
+      margin-bottom: 90px
+
+    &__info
+      display: flex
+
+      a
+        @include font($blue, $bold, bold, 20px)
+        margin-right: auto
+        text-decoration: none
+
+        &:hover
+          color: $lightBlue
+          @include transition()
+
+      &__date, &__shows
+        @include font($textBlack, $regular, normal, 20px)
+        margin: 0 50px 0 0
+        display: flex
+        align-items: center
+
+        &::before
+          content: ' '
+          margin-right: 20px
+          width: 50px
+          height: 30px
+          display: block
+
+      &__date::before
+        width: 30px
+        background: url("../images/news/calendar.png") center center no-repeat
+
+      &__shows::before
+        background: url("../images/news/yey.png") center center no-repeat
+
+/* INVITATION PAGE */
+.invitation
+  padding-top: 60px
+  margin-bottom: 60px
+  max-width: 900px
+
+  &_top
+    @include font($textBlack, $regular, normal, 22px)
+    margin-bottom: 40px
+
+  p
+    max-width: 700px
+    @include font($textBlack, $regular, normal, 20px, 1.2)
+
+  &__support
+    font-style: italic
+    font-family: $italic
+
+/* CONTACTS PAGE */
+.contacts
+  padding-top: 60px
+  margin-bottom: 60px
+
+  &__item
+    display: flex
+    align-items: flex-start
+    margin-bottom: 80px
+
+    &_left
+      margin-right: 30px
+
+      img
+        width: 70px
+        height: 70px
+
+    &_right
+      padding-top: 20px
+
+      a
+        @include font($textBlack, $regular, normal, 22px, 1.2)
+        text-decoration: none
+
+      &__title
+        margin: 0
+        @include font($textBlack, $regular, normal, 22px, 1.2)
+        text-transform: uppercase
+
+      &__content
+        @include font($textBlack, $regular, normal, 22px, 1.2)
+        margin: 0 0 40px
+
+.map
+  display: flex
+  margin-bottom: 60px
+
+/* ARCHIVE PAGE */
+.s_archive
+  .news__item__title
+    margin-bottom: 30px
+
+  .news__item p
+    max-width: 700px
+    margin-bottom: 60px
+
+/* THANKS PAGE */
+.thanksPhoto
+  padding-top: 60px
+  margin-bottom: 60px
+
+  img
+    width: 100%
+    max-width: 1000px
+    margin: 0 auto
+    max-height: 470px
+    @include object-fit()
+    display: block
+
+.thanks
+  max-width: 700px
+  margin: 0 auto 60px
+
+  p
+    @include font($textBlack, $regular, normal, 20px, 1.2)
+
+    span
+      font-family: $bold
+      font-weight: bold
+
+
+@import "hamburger"
+
+/* RESPONSIVE */
+@import "responsive"
