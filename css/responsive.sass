@@ -1,4 +1,109 @@
 @import "variables"
 @import "prefixes"
 
-@media only screen and (max-width: 1200px)
+@media only screen and (max-width: 800px)
+  .logo
+    &_big
+      font-size: 33px
+
+    &_small
+      font-size: 16px
+
+@media only screen and (max-width: 767px)
+  .header
+    &__menu
+      display: none
+
+    &_main
+      margin-top: 25px
+      margin-bottom: 50px
+
+      p
+        font-size: 25px
+
+    .logo
+      text-align: right
+      margin-left: auto
+
+  .footer
+    .logo
+      display: none
+
+    &__contacts
+      display: flex
+      flex-direction: column
+
+      p
+        font-size: 17px
+        line-height: 1.2
+
+        &:last-child
+          order: -1
+          margin-bottom: 20px
+
+      .phone
+        font-size: 17px
+        line-height: 1.2
+
+@media only screen and (max-width: 640px)
+  .wrapper
+    padding: 0 15px
+
+  .main
+    &__invisible
+      img
+        position: absolute
+        min-height: 100%
+        max-height: 100%
+        @include object-fit(cover)
+
+    &__content
+      position: relative
+      opacity: 1
+
+      .innerTitle
+        margin-top: 40px
+
+      a
+        position: static
+        margin-bottom: 50px
+        margin-left: 100%
+        margin-top: 60px
+        @include transform(translateX(-100%))
+
+  .news
+    padding-top: 10px
+
+    &__item
+      > p
+        margin-bottom: 30px
+
+  .news__item__info__date, .news__item__info__shows
+    white-space: nowrap
+    margin-right: 0
+    margin-left: auto
+    margin-bottom: 10px
+
+  .news__item__info__date::before, .news__item__info__shows::before
+    margin-right: 5px
+
+  .news__item__info
+    display: flex
+    flex-direction: column
+
+    a
+     margin-bottom: 10px
+
+  .contacts__item_left
+    margin-right: 10px
+
+  .contacts__item:nth-child(2)
+    .contacts__item_right
+      padding-top: 0
+
+  .s_archive .news__item p
+    margin-bottom: 10px
+
+  .thanksPhoto img
+    min-height: 350px
+    @include  object-fit()

@@ -24,7 +24,7 @@
 
 .menu-toggle-line
   position: absolute
-  background: $blue
+  background: $white
   display: block
   margin: auto
   height: 4px
@@ -63,9 +63,6 @@
   -o-transition: opacity 0.2s ease 0s, -o-transform 0.2s ease 0s
   -moz-transition: opacity 0.2s ease 0s, transform 0.2s ease 0s, -moz-transform 0.2s ease 0s
 
-.adaptive-menu-toggle--open .menu-toggle-line
-  background: $blue
-
 .adaptive-menu-toggle--open .menu-toggle-line--1
   width: 0
   @include transition(width 0.2s ease 0s)
@@ -94,37 +91,51 @@
   -o-transition: opacity 0.2s ease 0.4s, -o-transform 0.2s ease 0.4s
   -moz-transition: opacity 0.2s ease 0.4s, transform 0.2s ease 0.4s, -moz-transform 0.2s ease 0.4s
 
-@media only screen and (max-width: 640px)
+@media only screen and (max-width: 767px)
   .header__hamburger
     display: block !important
     position: absolute
-    right: 10px
-    top: 20px
+    left: 15px
+    top: 30px
 
   .headerNav_adaptive
-    background: $textBlack
+    background: $darkBlue
     display: none
     padding-top: 60px
     position: absolute
     top: 0
     +transform(translateX(-100%))
-    width: 100%
+    width: 250px
     z-index: 3
+    height: 100vh
 
   .header_opened
     display: block !important
     +transform(translateX(0))
 
   .headerNav__items_adaptive a
-    background: $textBlack
-    border: $textBlack 1px solid
-    border-bottom: none
-    color: $blue
-    display: block
+    background: $darkBlue
+    color: $white
+    display: inline-block
     font-family: "Museo Sans Cyrl -300", sans-serif
     font-size: 17px
     padding: 10px
     text-decoration: none
 
-  .headerNav__items_adaptive li:last-child a
-    border-bottom: $textBlack 1px solid
+  .headerNav__items_adaptive .active a
+    color: $lightBlue
+
+  .headerNav_adaptive
+    padding-left: 15px
+
+    .logo
+      padding-top: 10px
+      margin-bottom: 50px
+      text-align: left
+
+  .headerNav__items_adaptive
+    list-style: none
+    padding-right: 15px
+
+    li
+      text-align: center

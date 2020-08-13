@@ -7,12 +7,13 @@ body
   display: flex
   flex-direction: column
   min-height: 100vh
+  overflow-x: hidden
 
 ul
   margin: 0
   padding: 0
 
-img:focus
+img:focus, button:focus
   outline: none !important
 
 .wrapper
@@ -40,7 +41,8 @@ img:focus
     bottom: 0
     left: 0
     right: 0
-    background: url("../images/main/photo_block_1.jpg")
+    background: url("../images/main/photo_block_1.jpg") center center no-repeat
+    background-size: cover
     margin: 0 auto
 
 .header
@@ -73,6 +75,7 @@ img:focus
 
 .logo
   @include font($white, $cormorant, 300, 22px)
+  display: inline-block
 
   &_big
     font-size: 48px
@@ -80,6 +83,7 @@ img:focus
 
 .header_main
   p
+    position: relative
     max-width: 700px
     @include font($white, $regular, normal, 29px)
 
@@ -105,9 +109,10 @@ img:focus
 
 /* MAIN PAGE */
 .main
-  img
+  .slick-list img
     width: 100%
     max-height: 520px
+    min-height: 350px
     @include object-fit()
 
   &__invisible
@@ -137,6 +142,7 @@ img:focus
       max-width: 700px
 
     a
+      display: inline-block
       position: absolute
       bottom: 40px
       right: 300px
@@ -167,6 +173,29 @@ img:focus
 
   .slick-next
     right: 100px
+
+  .slick-dots
+    font-size: 0
+    display: flex
+    position: absolute
+    bottom: 20px
+    left: 50%
+    @include transform(translateX(-50%))
+
+    li
+      margin: 0 3px
+
+      button
+        width: 8px
+        height: 8px
+        @include border-radius()
+        background: $white
+        border: none
+        padding: 0
+
+      &.slick-active
+        button
+          background: #8d8c9c
 
 .news
   padding-top: 60px
